@@ -1,20 +1,205 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!-- Right Panel -->
+
+<div id="right-panel" class="right-panel">
+
+  <!-- Navigation Panel-->
+  <!-- Navigation Panel-->
+
+  <div class="breadcrumbs">
+    <div class="col-sm-4">
+      <div class="page-header float-left">
+        <div class="page-title">
+          <h1>Все заказы, кроме доставленых</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8">
+
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+    </div>
+    <div class="card-body">
+
+
+      <div class="divTable customGridTable">
+        <div class="divTableHeading">
+          <div class="divTableRow">
+            <div class="divTableHead"></div>
+            <div class="divTableHead">ФИО Клиента</div>
+            <div class="divTableHead">Номер телефона</div>
+            <div class="divTableHead">№ заказа</div>
+            <div class="divTableHead">Сумма заказа</div>
+            <div class="divTableHead">Статус заказа</div>
+            <div class="divTableHead">Дата создания</div>
+          </div>
+        </div>
+        <div class="divTableBody" *ngFor="let order of orders">
+          <div class="divTableRow row">
+            <div class="divTableCell">
+              <a data-toggle="collapse" href=`#${order.id}` aria-expanded="false"
+                 aria-controls="footwear" class="collapsed">
+                <i class="fa fa-plus-square-o"/>
+              </a>
+            </div>
+            <div class="divTableCell">{{order?.fullName}}</div>
+            <div class="divTableCell">{{order?.username}}</div>
+            <div class="divTableCell">{{order?.id}}</div>
+            <div class="divTableCell">{{order?.orderTotal}}</div>
+            <div class="divTableCell ">{{order?.orderStatus}}</div>
+            <div class="divTableCell col-sm-1.8">{{order?.createdDate}}</div>
+          </div>
+          <div id="${order.id}" class="divTableRow collapse inner-table-container-row">
+            <div class="divTableCell"></div>
+            <div class="divTableCell">
+              <div class="divTable">
+                <div class="divTableHeading">
+                  <div class="divTableRow">
+                    <div class="divTableHead">Фермер</div>
+                    <div class="divTableHead">Название лота</div>
+                    <div class="divTableHead">Начальное к-во</div>
+                    <div class="divTableHead">Фактическое к-во</div>
+                    <div class="divTableHead">Фасовка</div>
+                    <div class="divTableHead">Цена за единицу</div>
+                    <div class="divTableHead">Сумма</div>
+                    <div class="divTableHead">Дата создания</div>
+                    <div class="divTableHead">Статус</div>
+                  </div>
+                </div>
+                <div class="divTableBody">
+                  <div class="divTableRow" *ngFor="let op of order.orderPositions">
+                    <div class="divTableCell">{{op?.farmerName}}</div>
+                    <div class="divTableCell">{{op?.lotName}}</div>
+                  <div class="divTableCell">{{op?.initialAmount}}</div>
+                  <div class="divTableCell">{{op?.actualAmount}}</div>
+                    <div class="divTableCell">{{op?.amountUnitDescr}}</div>
+                    <div class="divTableCell">{{op?.pricePerUnit}}</div>
+                    <div class="divTableCell">{{op?.total}}</div>
+                    <div class="divTableCell">{{op?.createdDate}}</div>
+                    <div class="divTableCell">{{op?.status}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--delete later-->
+      <!--<table class="table table-striped">-->
+      <!--<tr>-->
+      <!--<th class="text-left"></th>-->
+      <!--<th class="text-left">ФИО Клиента</th>-->
+      <!--<th class="text-left">Номер телефона</th>-->
+      <!--<th class="text-center">№ заказа</th>-->
+      <!--<th class="text-center">Сумма заказа</th>-->
+      <!--<th class="text-center">Статус заказа</th>-->
+      <!--<th class="text-center">Дата создания</th>-->
+      <!--</tr>-->
+      <!--<div th:each="order : ${orders}">-->
+      <!--<tr>-->
+      <!--<td>-->
+      <!--<a data-toggle="collapse" th:href="'&#35;' + ${order.id}" aria-expanded="false"-->
+      <!--aria-controls="footwear" class="collapsed">-->
+      <!--<i class="fa fa-plus-square-o"/>-->
+      <!--</a>-->
+      <!--</td>-->
+      <!--<td class="text-left" th:text="${order?.fullName}"></td>-->
+      <!--<td class="text-left" th:text="${order?.username}"></td>-->
+      <!--<td class="text-center" th:text="${order?.id}"></td>-->
+      <!--<td class="text-center" th:text="${order?.orderTotal}"-->
+      <!--th:classappend="${order.estimatedCalculationOfTotal} == true ? 'text-danger' : ''"></td>-->
+      <!--<td class="text-center" th:text="${order?.orderStatus}"></td>-->
+      <!--<td class="text-center" th:text="${order?.createdDate}"></td>-->
+      <!--</tr>-->
+      <!--<tr th:id="${order.id}" class="collapse inner-table-container-row">-->
+      <!--<td colspan="7">-->
+      <!--<table class="table inner-table">-->
+      <!--<tr>-->
+      <!--<th class="text-left">Фермер</th>-->
+      <!--<th class="text-left">Название лота</th>-->
+      <!--<th class="text-left">Начальное к-во</th>-->
+      <!--<th class="text-left">Фактическое к-во</th>-->
+      <!--<th class="text-left">Фасовка</th>-->
+      <!--<th class="text-left">Цена за единицу</th>-->
+      <!--<th class="text-left">Сумма</th>-->
+      <!--<th class="text-left">Дата создания</th>-->
+      <!--<th class="text-left">Статус</th>-->
+      <!--</tr>-->
+      <!--<tr th:each="op : ${order.orderPositions}">-->
+      <!--<td class="text-left" th:text="${op?.farmerName}"></td>-->
+      <!--<td class="text-left" th:text="${op?.lotName}"></td>-->
+      <!--<td class="text-left" th:text="${op?.initialAmount}"></td>-->
+      <!--<td class="text-left" th:text="${op?.actualAmount}"></td>-->
+      <!--<td class="text-left" th:text="${op?.amountUnitDescr}"></td>-->
+      <!--<td class="text-left" th:text="${op?.pricePerUnit}"></td>-->
+      <!--<td class="text-left" th:text="${op?.total}"-->
+      <!--th:classappend="${op.estimatedCalculationOfTotal} == true ? 'text-danger' : ''"></td>-->
+      <!--<td class="text-left" th:text="${op?.createdDate}"></td>-->
+      <!--<td class="text-left" th:text="${op?.status}"></td>-->
+      <!--</tr>-->
+      <!--</table>-->
+      <!--</td>-->
+      <!--</tr>-->
+      <!--</div>-->
+      <!--</table>-->
+      <!--&lt;!&ndash;delete later&ndash;&gt;-->
+
+      <!--Pagination control-->
+      <!--ToDo - refactore the structure, move to separate fragment-->
+
+      <!--<div class="row">-->
+      <!--<div class="form-group col-md-1">-->
+      <!--<select class="form-control pagination justify-content-center" id="pageSizeSelect">-->
+      <!--<option th:each="pageSize : ${pageSizes}" th:text="${pageSize}" th:value="${pageSize}"-->
+      <!--th:selected="${pageSize} == ${selectedPageSize}"></option>-->
+      <!--</select>-->
+      <!--</div>-->
+      <!--<nav th:if="${orders.totalPages != 1}" class="form-group">-->
+      <!--<ul class="pagination justify-content-center">-->
+      <!--<li class="page-item" th:classappend="${orders.number == 0} ? disabled">-->
+      <!--<a class="page-link"-->
+      <!--th:href="@{/reports/all-orders-except-delivered(pageSize=${selectedPageSize}, page=1)}">-->
+      <!--<span aria-hidden="true">&laquo;</span>-->
+      <!--<span class="sr-only">Первый</span>-->
+      <!--</a>-->
+      <!--</li>-->
+      <!--<li class="page-item" th:classappend="${orders.number == 0} ? disabled">-->
+      <!--<a class="page-link"-->
+      <!--th:href="@{/reports/all-orders-except-delivered(pageSize=${selectedPageSize}, page=${orders.number})}">&larr;</a>-->
+      <!--</li>-->
+      <!--<li class="page-item"-->
+      <!--th:classappend="${orders.number == (page - 1)} ? 'active pointer-disabled'"-->
+      <!--th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}">-->
+      <!--<a class="page-link"-->
+      <!--th:href="@{/reports/all-orders-except-delivered(pageSize=${selectedPageSize}, page=${page})}"-->
+      <!--th:text="${page}"></a>-->
+      <!--</li>-->
+      <!--<li class="page-item" th:classappend="${orders.number + 1 == orders.totalPages} ? disabled">-->
+      <!--<a class="page-link"-->
+      <!--th:href="@{/reports/all-orders-except-delivered(pageSize=${selectedPageSize}, page=${orders.number + 2})}">&rarr;</a>-->
+      <!--</li>-->
+      <!--<li class="page-item" th:classappend="${orders.number + 1 == orders.totalPages} ? disabled">-->
+      <!--<a class="page-link"-->
+      <!--th:href="@{/reports/all-orders-except-delivered(pageSize=${selectedPageSize}, page=${orders.totalPages})}">-->
+      <!--<span aria-hidden="true">&raquo;</span>-->
+      <!--<span class="sr-only">Последний</span>-->
+      <!--</a>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</nav>-->
+      <!--</div>-->
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+
+<!-- Right Panel -->
+
+<!--<script src="/assets/js/vendor/jquery-2.1.4.min.js"></script>-->
+<!--<script src="/assets/js/popper.min.js"></script>-->
+<!--<script src="/assets/js/plugins.js"></script>-->
+<!--<script src="/assets/js/main.js"></script>-->
 
