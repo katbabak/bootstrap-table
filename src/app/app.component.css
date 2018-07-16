@@ -1,25 +1,29 @@
-div.blueTable {
+h1 {
+  color: red;
+}
+
+div.customGridTable {
   border: 1px solid #1C6EA4;
   background-color: #EEEEEE;
-  width: 100%;
+  width: 800px;
   text-align: left;
   border-collapse: collapse;
 }
 
-.divTable.blueTable .divTableCell, .divTable.blueTable .divTableHead {
+.divTable .divTableCell, .divTable .divTableHead {
   border: 1px solid #AAAAAA;
   padding: 3px 2px;
 }
 
-.divTable.blueTable .divTableBody .divTableCell {
+.divTable .divTableBody .divTableCell {
   font-size: 13px;
 }
 
-.divTable.blueTable .divTableRow:nth-child(odd) {
+.divTable .divTableRow:nth-child(odd) {
   background: #D0E4F5;
 }
-    
-.divTable.blueTable .divTableHeading {
+
+.divTable .divTableHeading {
   background: #1C6EA4;
   background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
   background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
@@ -27,26 +31,26 @@ div.blueTable {
   border-bottom: 2px solid #444444;
 }
 
-.divTable.blueTable .divTableHeading .divTableHead {
+.divTable .divTableHeading .divTableHead {
   font-size: 15px;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #0000;
   border-left: 2px solid #D0E4F5;
 }
 
-.divTable.blueTable .divTableHeading .divTableHead:first-child {
+.divTable .divTableHeading .divTableHead:first-child {
   border-left: none;
 }
 
-.blueTable .tableFootStyle {
+ .tableFootStyle {
   font-size: 14px;
 }
 
-.blueTable .tableFootStyle .links {
+ .tableFootStyle .links {
   text-align: right;
 }
 
-.blueTable .tableFootStyle .links a {
+ .tableFootStyle .links a {
   display: inline-block;
   background: #1C6EA4;
   color: #FFFFFF;
@@ -54,11 +58,11 @@ div.blueTable {
   border-radius: 5px;
 }
 
-.blueTable.outerTableFooter {
+.outerTableFooter {
   border-top: none;
 }
 
-.blueTable.outerTableFooter .tableFootStyle {
+.outerTableFooter .tableFootStyle {
   padding: 3px 5px;
 }
 
@@ -89,4 +93,17 @@ div.blueTable {
 
 .divTableBody {
   display: table-row-group;
+}
+
+
+.collapse:not(.show) {
+  display: none;
+}
+
+.cell {
+  width: 14.285714285714285714285714285714%;
+}
+
+.inner-table .cell {
+  /*width: unset;*/
 }

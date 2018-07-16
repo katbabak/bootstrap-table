@@ -1,21 +1,16 @@
-<!-- Right Panel -->
-
 <div id="right-panel" class="right-panel">
-
-  <!-- Navigation Panel-->
-  <!-- Navigation Panel-->
 
   <div class="breadcrumbs">
     <div class="col-sm-4">
       <div class="page-header float-left">
         <div class="page-title">
-          <h1>Все заказы, кроме доставленых</h1>
+          <!--<h1>Все заказы, кроме доставленых</h1>-->
         </div>
       </div>
     </div>
-    <div class="col-sm-8">
+    <!--<div class="col-sm-8">-->
 
-    </div>
+    <!--</div>-->
   </div>
 
   <div class="card">
@@ -23,62 +18,59 @@
     </div>
     <div class="card-body">
 
-
-      <div class="divTable customGridTable">
-        <div class="divTableHeading">
-          <div class="divTableRow">
-            <div class="divTableHead"></div>
-            <div class="divTableHead">ФИО Клиента</div>
-            <div class="divTableHead">Номер телефона</div>
-            <div class="divTableHead">№ заказа</div>
-            <div class="divTableHead">Сумма заказа</div>
-            <div class="divTableHead">Статус заказа</div>
-            <div class="divTableHead">Дата создания</div>
-          </div>
+      <div class="container-fluid">
+        <div class="row seven-cols">
+          <div class="cell header col-sm-1"></div>
+          <div class="cell header col-sm-2">ФИО Клиента</div>
+          <div class="cell header col-sm-2">Номер телефона</div>
+          <div class="cell header col-sm-1">№ заказа</div>
+          <div class="cell header col-sm-2">Сумма заказа</div>
+          <div class="cell header col-sm-2">Статус заказа</div>
+          <div class="cell header col-sm-2">Дата создания</div>
         </div>
-        <div class="divTableBody" *ngFor="let order of orders">
-          <div class="divTableRow row">
-            <div class="divTableCell">
-              <a data-toggle="collapse" href=`#${order.id}` aria-expanded="false"
+        <div class="tableBody" *ngFor="let order of orders">
+          <div class="row seven-cols">
+            <div class="cell col-sm-1">
+              <a data-toggle="collapse" data-target="#23" aria-expanded="false"
                  aria-controls="footwear" class="collapsed">
-                <i class="fa fa-plus-square-o"/>
+                <i class="far fa-plus-square"></i>
               </a>
             </div>
-            <div class="divTableCell">{{order?.fullName}}</div>
-            <div class="divTableCell">{{order?.username}}</div>
-            <div class="divTableCell">{{order?.id}}</div>
-            <div class="divTableCell">{{order?.orderTotal}}</div>
-            <div class="divTableCell ">{{order?.orderStatus}}</div>
-            <div class="divTableCell col-sm-1.8">{{order?.createdDate}}</div>
+            <div class="cell col-sm-2">{{order?.fullName}}</div>
+            <div class="cell col-sm-2">{{order?.username}}</div>
+            <div class="cell col-sm-1">{{order?.id}}</div>
+            <div class="cell col-sm-2">{{order?.orderTotal}}</div>
+            <div class="cell col-sm-2">{{order?.orderStatus}}</div>
+            <div class="cell col-sm-2">{{order?.createdDate}}</div>
           </div>
-          <div id="${order.id}" class="divTableRow collapse inner-table-container-row">
-            <div class="divTableCell"></div>
-            <div class="divTableCell">
-              <div class="divTable">
-                <div class="divTableHeading">
-                  <div class="divTableRow">
-                    <div class="divTableHead">Фермер</div>
-                    <div class="divTableHead">Название лота</div>
-                    <div class="divTableHead">Начальное к-во</div>
-                    <div class="divTableHead">Фактическое к-во</div>
-                    <div class="divTableHead">Фасовка</div>
-                    <div class="divTableHead">Цена за единицу</div>
-                    <div class="divTableHead">Сумма</div>
-                    <div class="divTableHead">Дата создания</div>
-                    <div class="divTableHead">Статус</div>
+          <div id="23" class="row collapse">
+            <div class="cell"></div>
+            <div class="cell">
+              <div class="divTable inner-table">
+                <div class="divTableHead">
+                  <div class="row divTableRow">
+                    <div class="cell header divTableHead">Фермер</div>
+                    <div class="cell header divTableHead">Название лота</div>
+                    <div class="cell header divTableHead">Начальное к-во</div>
+                    <div class="cell header divTableHead">Фактическое к-во</div>
+                    <div class="cell header divTableHead">Фасовка</div>
+                    <div class="cell header divTableHead">Цена за единицу</div>
+                    <div class="cell header divTableHead">Сумма</div>
+                    <div class="cell header divTableHead">Дата создания</div>
+                    <div class="cell header divTableHead">Статус</div>
                   </div>
                 </div>
                 <div class="divTableBody">
-                  <div class="divTableRow" *ngFor="let op of order.orderPositions">
-                    <div class="divTableCell">{{op?.farmerName}}</div>
-                    <div class="divTableCell">{{op?.lotName}}</div>
-                  <div class="divTableCell">{{op?.initialAmount}}</div>
-                  <div class="divTableCell">{{op?.actualAmount}}</div>
-                    <div class="divTableCell">{{op?.amountUnitDescr}}</div>
-                    <div class="divTableCell">{{op?.pricePerUnit}}</div>
-                    <div class="divTableCell">{{op?.total}}</div>
-                    <div class="divTableCell">{{op?.createdDate}}</div>
-                    <div class="divTableCell">{{op?.status}}</div>
+                  <div class="divTableRow row" *ngFor="let op of order.orderPositions">
+                    <div class="cell divTableCell">{{op?.farmerName}}</div>
+                    <div class="cell divTableCell">{{op?.lotName}}</div>
+                    <div class="cell divTableCell">{{op?.initialAmount}}</div>
+                    <div class="cell divTableCell">{{op?.actualAmount}}</div>
+                    <div class="cell divTableCell">{{op?.amountUnitDescr}}</div>
+                    <div class="cell divTableCell">{{op?.pricePerUnit}}</div>
+                    <div class="cell divTableCell">{{op?.total}}</div>
+                    <div class="cell divTableCell">{{op?.createdDate}}</div>
+                    <div class="cell divTableCell">{{op?.status}}</div>
                   </div>
                 </div>
               </div>
@@ -86,6 +78,74 @@
           </div>
         </div>
       </div>
+
+      <!--<div class="divTable customGridTable">-->
+      <!--<div class="divTableHeading">-->
+      <!--<div class="divTableRow">-->
+      <!--<div class="divTableHead" style="width: 14.28571%"></div>-->
+      <!--<div class="divTableHead" style="width: 14.28571%">ФИО Клиента</div>-->
+      <!--<div class="divTableHead" style="width: 14.28571%">Номер телефона</div>-->
+      <!--<div class="divTableHead" style="width: 14.28571%">№ заказа</div>-->
+      <!--<div class="divTableHead" >Сумма заказа</div>-->
+      <!--<div class="divTableHead" style="width: 14.28571%">Статус заказа</div>-->
+      <!--<div class="divTableHead" style="width: 14.28574%">Дата создания</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="divTableBody" *ngFor="let order of orders">-->
+      <!--<div class="divTableRow row">-->
+      <!--<div class="divTableCell" style="width: 14.28571%">-->
+      <!--<a data-toggle="collapse" data-target="#23" aria-expanded="false"-->
+      <!--aria-controls="footwear"   class="collapsed">-->
+      <!--<i class="far fa-plus-square"></i>-->
+      <!--</a>-->
+      <!--</div>-->
+      <!--<div class="divTableCell" style="width: 14.28571%">{{order?.fullName}}</div>-->
+      <!--<div class="divTableCell" style="width: 14.28571%">{{order?.username}}</div>-->
+      <!--<div class="divTableCell" style="width: 14.28571%">{{order?.id}}</div>-->
+      <!--<div class="divTableCell" style="width: 14.28571%">{{order?.orderTotal}}</div>-->
+      <!--<div class="divTableCell" style="width: 14.28571%">{{order?.orderStatus}}</div>-->
+      <!--<div class="divTableCell" style="width: 14.28574%">{{order?.createdDate}}</div>-->
+      <!--</div>-->
+      <!--<div id="23" class="divTableRow collapse" style="width: 100%">-->
+      <!--<div class="divTableCell" style="width: 14.28571%"></div>-->
+      <!--<div class="divTableCell" style="width: 85.71429%">-->
+      <!--<div class="divTable">-->
+      <!--<div class="divTableHeading">-->
+      <!--<div class="divTableRow">-->
+      <!--<div class="divTableHead">Фермер</div>-->
+      <!--<div class="divTableHead">Название лота</div>-->
+      <!--<div class="divTableHead">Начальное к-во</div>-->
+      <!--<div class="divTableHead">Фактическое к-во</div>-->
+      <!--<div class="divTableHead">Фасовка</div>-->
+      <!--<div class="divTableHead">Цена за единицу</div>-->
+      <!--<div class="divTableHead">Сумма</div>-->
+      <!--<div class="divTableHead">Дата создания</div>-->
+      <!--<div class="divTableHead">Статус</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="divTableBody">-->
+      <!--<div class="divTableRow" *ngFor="let op of order.orderPositions">-->
+      <!--<div class="divTableCell">{{op?.farmerName}}</div>-->
+      <!--<div class="divTableCell">{{op?.lotName}}</div>-->
+      <!--<div class="divTableCell">{{op?.initialAmount}}</div>-->
+      <!--<div class="divTableCell">{{op?.actualAmount}}</div>-->
+      <!--<div class="divTableCell">{{op?.amountUnitDescr}}</div>-->
+      <!--<div class="divTableCell">{{op?.pricePerUnit}}</div>-->
+      <!--<div class="divTableCell">{{op?.total}}</div>-->
+      <!--<div class="divTableCell">{{op?.createdDate}}</div>-->
+      <!--<div class="divTableCell">{{op?.status}}</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="divTableCell" style="width: 0%"></div>-->
+      <!--<div class="divTableCell" style="width: 0%"></div>-->
+      <!--<div class="divTableCell" style="width: 0%"></div>-->
+      <!--<div class="divTableCell" style="width: 0%"></div>-->
+      <!--<div class="divTableCell" style="width: 0%"></div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
 
 
       <!--delete later-->
@@ -149,7 +209,6 @@
       <!--&lt;!&ndash;delete later&ndash;&gt;-->
 
       <!--Pagination control-->
-      <!--ToDo - refactore the structure, move to separate fragment-->
 
       <!--<div class="row">-->
       <!--<div class="form-group col-md-1">-->

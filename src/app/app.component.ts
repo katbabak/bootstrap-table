@@ -10,7 +10,7 @@ export class AppComponent {
   orders = [
     {
       fullName: 'Client01',
-      userName: '0987654434',
+      username: '0987654434',
       id: '001',
       orderTotal: 60,
       orderStatus: 'NEW',
@@ -53,7 +53,7 @@ export class AppComponent {
     },
     {
       fullName: 'Client02',
-      userName: '098763r2234',
+      username: '098763r2234',
       id: '002',
       orderTotal: 234.00,
       orderStatus: 'Ref',
